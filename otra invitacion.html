@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mis XV Años</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Georgia, serif;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    .envelope-screen {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 30px;
+    }
+
+
+
+    .seal {
+      position: absolute;
+      top: 90px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1866F2, #f3e8ff, #7e57c2);
+      color: #2b1748;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      z-index: 2;
+      box-shadow: 0 0 18px rgba(179,136,255,.8);
+    }
+
+    .open-text {
+      margin-top: 30px;
+      color: #1866F2;
+      letter-spacing: 2px;
+    }
+
+
+    .invitation.show {
+      display: block;
+    }
+    .hero {
+      min-height: 100vh;
+      background:
+        linear-gradient(rgba(43,23,72,.65), rgba(18,5,31,.9)),
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 35px;
+      text-align: center;
+    }
+
+    .card {
+      border: 1px solid #1866F2;
+      border-radius: 28px;
+      padding: 45px 28px;
+      max-width: 620px;
+      width: 100%;
+      background: rgba(24,10,42,.78);
+      box-shadow: 0 0 35px rgba(179,136,255,.35);
+    }
+
+    .subtitle {
+      color: #1866F2;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      color: #1866F2;
+      font-size: 56px;
+      margin-bottom: 12px;
+    }
+
+    .name {
+      font-size: 36px;
+      margin-bottom: 18px;
+    }
+
+    .date {
+      color: #1866F2;
+      font-size: 20px;
+      margin-bottom: 22px;
+    }
+
+    section {
+      padding: 70px 25px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #4656EB;
+      font-size: 34px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      max-width: 720px;
+      margin: auto;
+      line-height: 1.7;
+      font-size: 18px;
+      color: #f5f5f5;
+    }
+
+    .quote {
+      font-style: italic;
+      color: #1866F2;
+      font-size: 22px;
+      max-width: 760px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 24px;
+      max-width: 980px;
+      margin: 38px auto 0;
+    }
+
+    .box {
+      background: #002057;
+      border: 1px solid #002057;
+      border-radius: 22px;
+      padding: 26px;
+      box-shadow: 0 0 18px rgba(179,136,255,.15);
+    }
+
+    .box h3 {
+      color: #FFFFFF;
+      margin-bottom: 12px;
+      font-size: 22px;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 22px;
+      padding: 14px 30px;
+      background: linear-gradient(135deg, #0047ab, #e0f7fa, #00838f);
+      color: #00063D;
+      text-decoration: none;
+      border-radius: 40px;
+      font-weight: bold;
+      transition: .3s;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(0, 150, 255, 0.75);
+    }
+
+    .itinerary {
+      max-width: 650px;
+      margin: 35px auto 0;
+      text-align: left;
+    }
+
+    .item {
+      display: flex;
+      gap: 18px;
+      padding: 18px;
+      margin-bottom: 14px;
+      background: #002057;
+      border-left: 4px solid #002057;
+      border-radius: 14px;
+    }
+
+    .time {
+      color: #5E9AFF;
+      font-weight: bold;
+      min-width: 90px;
+    }
+
+    footer {
+      background: #002057;
+      color: #5E9AFF;
+      text-align: center;
+      padding: 35px 20px;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media(max-width: 600px) {
+      h1 {
+        font-size: 42px;
+      }
+
+      .name {
+        font-size: 30px;
+      }
+
+      .envelope-box {
+        width: 280px;
+        height: 190px;
+      }
+    }
+  </style>
+</head>
+   
+  <main class="invitation" id="invitation">
+
+    <header class="hero">
+      <div style="text-align: center;">
+    <a href="">
+        <img class="nombre,png" src="nombre.png" alt="Mis XV Años";>
+    </a>
+</div>
+    </header>
+
+    <section>
+      <h2>Dedicatoria</h2>
+      <p class="quote">
+        “Hay momentos inolvidebles que se atesoran en el corazón para siempre, y con la bendición de Dios y el amor de mi familia me siento muy feliz de llegar a ese momento de mi vida.
+        por esta razón queremos que nos acompañen en este dia tan especial.”
+      </p>
+    </section>
+
+    <section>
+      <h2>Con la bendición de mis </h2>
+      <div class="grid">
+        <div class="box">
+          <h3>Mis padres</h3>
+          <p>Lic. Juan Raúl Toga González</p>
+          <p>Dra. Diana Zenyance Rojas Pechá</p>
+        </div>
+
+        <div class="box">
+          <h3>Mis padrinos</h3>
+          <p>Ing. Rouxel Rojas Pechá</p>
+          <p>L.E Adriana Lizeth Camposeco Díaz</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Ceremonia religiosa</h2>
+      <div style="text-align: center;">
+    <a href="">
+        <img class="icono" src="iglesia.png" alt="Iglesia";>
+    </a>
+</div>
+      <div class="grid">
+        <div class="box">
+          <h3>Iglesia</h3>
+          <p>Basílica de nuestra Sra del Carmen, Catemaco Veracruz</p>
+        </div>
+
+        <div class="box">
+          <h3>Hora</h3>
+          <p>12:00 Hrs</p>
+        </div>
+
+        <div class="box">
+          <h3>Dirección</h3>
+          <p>Aldama 8, Centro, 95870 Catemaco, Ver.</p>
+        </div>
+      </div>
+
+      <a class="btn" href="https://maps.app.goo.gl/2QCiHuG1PyFAwxnKA" target="_blank">
+        Ver ubicación de la iglesia
+      </a>
+    </section>
+
+    <section>
+      <h2>Recepción</h2>
+      <div style="text-align: center;">
+    <a href="">
+        <img class="icono" src="salon.png" alt="Salón";>
+    </a>
+</div>
+      <div class="grid">
+        <div class="box">
+          <h3>Salón</h3>
+          <p>Salón de eventos Lux san Andrés Tuxtla, Veracruz</p>
+        </div>
+
+        <div class="box">
+          <h3>Hora</h3>
+          <p>13:30 Hrs</p>
+        </div>
+
+        <div class="box">
+          <h3>Dirección</h3>
+          <p>21 de Mar. 9, 1ro de Mayo, 95710 San Andrés Tuxtla, Ver.</p>
+        </div>
+      </div>
+
+      <a class="btn" href="https://maps.app.goo.gl/9xNWZAevPCH8qPH17" target="_blank">
+        Ver ubicación del salón
+      </a>
+    </section>
+
+    <section>
+      <script src="https://cdn.logwork.com/widget/countdown.js"></script>
+<a href="https://logwork.com/countdown-bkx8" class="countdown-timer" data-timezone="Europe/London" data-language="es" data-textcolor="#002057" data-date="2026-10-31 12:00" data-background="#002057" data-digitscolor="#ffffff" data-unitscolor="#002057">Faltan</a>
+      
+    </section>
+
+    <section>
+   
+      <h2>Itinerario</h2>
+      <div style="text-align: center;">
+    <a href="">
+        <img src="itine.png" alt="" width="100" style="display: inline-block;">
+    </a>
+</div>
+
+      <div class="itinerary">
+        <div class="item">
+          <div class="time">18:00 Hrs</div>
+          <div>Ceremonia religiosa</div>
+        </div>
+
+        <div class="item">
+          <div class="time">19:30 Hrs</div>
+          <div>Recepción en salón</div>
+        </div>
+
+        <div class="item">
+          <div class="time">8:00 PM</div>
+          <div>Fiesta</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Código de vestimenta</h2>
+      <div style="text-align: center;">
+    <a href="">
+        <img src="codigo.png" alt="" width="100" style="display: inline-block;">
+    </a>
+</div>
+      <div class="box" style="max-width: 600px; margin: auto;">
+        <h3>Formal elegante</h3>
+        <p>
+          Se sugieren colores negro, dorado o tonos neutros.
+          Evitar vestir de blanco.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Confirma tu asistencia</h2>
+      <div style="text-align: center;">
+    <a href="">
+        <img src="asitencia.png" alt="" width="100" style="display: inline-block;">
+    </a>
+</div>
+      <p>Será una alegría contar contigo en esta noche especial.</p>
+
+      <a class="btn" href="https://wa.me/9612558043?text=Hola,%20confirmo%20mi%20asistencia%20a%20los%20XV%20años" target="_blank">
+        Confirmar por WhatsApp
+      </a>
+    </section>
+
+    <footer>
+      Mis XV Años · Dori Zenyance · Una noche inolvidable ✨
+    </footer>
+
+  </main>
+
+  <script>
+    function openInvitation() {
+      const envelope = document.getElementById("envelope");
+      const envelopeScreen = document.getElementById("envelopeScreen");
+      const invitation = document.getElementById("invitation");
+
+      envelope.classList.add("open");
+
+      setTimeout(() => {
+        envelopeScreen.style.display = "none";
+        invitation.classList.add("show");
+        window.scrollTo(0, 0);
+      }, 1000);
+    }
+  </script>
+
+</body>
+</html>
